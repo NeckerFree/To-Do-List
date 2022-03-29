@@ -1,72 +1,47 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# TO-DO List
 
-> Description the project.
+
+> "TO-DO List" is simple HTML list of To Do tasks.
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Technologies used: HTML, CSS, Javascript
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link]()
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
 ### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+- Click the green `Code` button on the repo
+- In your local PC, open your terminal in the folder you would like to clone the project.
+- Clone the repo with the command: `git clone (copied link)`; like so: `git clone https://github.com/NeckerFree/To-Do-List`
+- On the terminal, navigate into the directory like so: `cd To-Do-List`
 
 ## Authors
 
-👤 **Author1**
+👤 **Elio Cortés**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@NeckerFree](https://github.com/NeckerFree)
+- Twitter: [@ElioCortesM](https://twitter.com/ElioCortesM)
+- LinkedIn: [elionelsoncortes](https://www.linkedin.com/in/elionelsoncortes/)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/NeckerFree/To-Do-List/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
