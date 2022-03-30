@@ -13,17 +13,6 @@ tasksArray.push({ index: 3, completed: false, description: 'Lunch break' });
 tasksArray.push({ index: 4, completed: false, description: 'MV Afternoon program time session' });
 tasksArray.push({ index: 5, completed: false, description: 'MV Standup team meeting' });
 
-// const validateCheckbox= (evt) =>{
-//   const bookid = parseInt(ev.target.id, 10);
-//   let elem = evt.target;
-//   let container=elem.parent;
-//   let label=container.getElementsByTagName('label')[0];
-//   if (this.checked) {
-//     label.classList.add('strike');
-//   } else {
-//     label.classList.remove('strike');
-//   }
-// };
 window.addEventListener('load', () => {
   // article
   const article = document.getElementsByTagName('article')[0];
