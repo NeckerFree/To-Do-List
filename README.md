@@ -25,6 +25,10 @@ To get a local copy up and running follow these simple example steps.
 - Clone the repo with the command: `git clone (copied link)`; like so: `git clone https://github.com/NeckerFree/To-Do-List`
 - On the terminal, navigate into the directory like so: `cd To-Do-List`
 
+### Install
+- in visual studio build with the command `npm run build` 
+- and run the distribution with the command `npm start`
+
 ## Authors
 
 👤 **Elio Cortés**
