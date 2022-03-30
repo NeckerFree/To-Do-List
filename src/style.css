@@ -1,0 +1,79 @@
+body {
+  background-color: white;
+}
+
+.articleContainer,
+.inputRow,
+.sectionContainer,
+.footerContainer {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionContainer {
+  border: 1px solid rgb(211, 207, 207);
+  box-shadow: 12px 12px 2px 1px rgba(131, 129, 129, 0.05);
+}
+
+.footerContainer {
+  border-top: 1px solid rgb(211, 207, 207);
+  padding: 15px 0;
+}
+
+.footerContainer div {
+  text-align: center;
+}
+
+.footerContainer div a {
+  text-decoration: none;
+}
+
+.articleContainer,
+.inputRow,
+.tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.tasks {
+  border-top: 1px solid rgb(211, 207, 207);
+}
+
+.tasks div label {
+  margin-left: 5px;
+}
+
+.inputRow input {
+  width: 400px;
+  border: none;
+  font-family: cursive;
+}
+
+.articleContainer {
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(211, 207, 207);
+}
+
+.tasksContainer {
+  padding: 0;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+img {
+  width: 16px;
+  height: 16px;
+}
+
+h1 {
+  font-size: medium;
+}
+
+ul {
+  list-style: none;
+}
