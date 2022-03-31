@@ -37,10 +37,12 @@ body {
   align-items: center;
   padding: 10px 10px;
 }
-.inputFocus{
+
+.inputFocus {
   outline: none;
   border: none;
 }
+
 .tasks {
   border-top: 1px solid rgb(211, 207, 207);
 }
@@ -54,9 +56,11 @@ body {
   border: none;
   font-family: cursive;
 }
-.highlighted{
+
+.highlighted {
   background-color: lightyellow;
 }
+
 .articleContainer {
   margin-bottom: 10px;
   border-bottom: 1px solid rgb(211, 207, 207);

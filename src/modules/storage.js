@@ -19,7 +19,7 @@ export default class Storage {
     }
 
     addItemStorage=(objectItem) => {
-      this.#itemsCollection=this.getItemStorage();
+      this.#itemsCollection = this.getItemStorage();
       if (this.#itemsCollection === null) {
         this.#itemsCollection = [];
       }
@@ -27,10 +27,12 @@ export default class Storage {
       this.#jsonItems = JSON.stringify(this.#itemsCollection);
       localStorage.setItem(this.#itemName, this.#jsonItems);
     }
+
     setCollectionStorage=(collection) => {
       this.#jsonItems = JSON.stringify(collection);
       localStorage.setItem(this.#itemName, this.#jsonItems);
     }
+
     removeItemStorage=(jsonItemsResult) => {
       if (jsonItemsResult.length === 0) {
         localStorage.removeItem(this.#itemName);
