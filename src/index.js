@@ -9,11 +9,8 @@ import trashImg from './icons/trash.png';
 
 const taskStore = new TaskStore();
 
-const deleteSelectedTasks = () => {
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-  [].forEach.call(checkboxes, (checkbox) => {
-    taskStore.remove(checkbox.id);
-  });
+const clearCompletedTasks = () => {
+  taskStore.clearCompleted();
   window.location.reload();
 };
 const editionMode = (event) => {
@@ -39,13 +36,31 @@ const updateDescription = (event) => {
     const check = divTask.childNodes[0];
     const img = rowTask.childNodes[1];
     if (inputTask.value !== '') {
-      taskStore.update(check.id, inputValue, check.checked);
+      taskStore.updateDescription(check.id, inputValue);
     }
     img.src = menuImg;
     img.alt = 'menu vertical';
     window.location.reload();
   }
 };
+const leaveEditionMode = (event) => {
+  const inputTask = event.target;
+  const inputValue = inputTask.value;
+  if (inputValue === '') {
+    event.preventDefault();
+  } else {
+    const divTask = inputTask.parentElement;
+    const rowTask = divTask.parentElement;
+    rowTask.classList.remove('highlighted');
+    inputTask.classList.remove('highlighted');
+    const check = divTask.childNodes[0];
+    const img = rowTask.childNodes[1];
+    img.src = menuImg;
+    img.alt = 'menu vertical';
+    // window.location.reload();
+  }
+};
+
 window.addEventListener('load', () => {
   // article
   const article = document.getElementsByTagName('article')[0];
@@ -91,7 +106,7 @@ window.addEventListener('load', () => {
   footer.classList.add('footerContainer');
   const divFooter = footer.childNodes[1];
   const anchor = divFooter.childNodes[0];
-  anchor.addEventListener('click', deleteSelectedTasks);
+  anchor.addEventListener('click', clearCompletedTasks);
   const ul = document.getElementsByTagName('ul')[0];
   ul.classList.add('tasksContainer');
   const tasksArray = taskStore.gettasks();
@@ -108,10 +123,9 @@ window.addEventListener('load', () => {
         } else {
           inputEdit.classList.remove('strike');
         }
-        if (inputEdit.value !== '') {
-          taskStore.update(inputCheckbox.id, inputEdit.value, inputCheckbox.checked);
-        }
+        taskStore.updateStatus(inputCheckbox.id, inputCheckbox.checked);
       });
+
       const inputEdit = document.createElement('input');
       inputEdit.setAttribute('type', 'text');
       if (tasksArray[i].completed) {
@@ -122,6 +136,7 @@ window.addEventListener('load', () => {
       inputEdit.value = `${tasksArray[i].description}`;
       inputEdit.addEventListener('click', editionMode);
       inputEdit.addEventListener('change', updateDescription);
+      inputEdit.addEventListener('focusout', leaveEditionMode);
       const li = document.createElement('li');
       li.classList.add('tasks');
       const divContainer = document.createElement('div');
