@@ -39,7 +39,7 @@ const updateDescription = (event) => {
     const check = divTask.childNodes[0];
     const img = rowTask.childNodes[1];
     if (inputTask.value !== '') {
-      taskStore.update(check.id, inputValue);
+      taskStore.update(check.id, inputValue, check.checked);
     }
     img.src = menuImg;
     img.alt = 'menu vertical';
@@ -53,6 +53,9 @@ window.addEventListener('load', () => {
   const imgLoading = document.createElement('img');
   imgLoading.setAttribute('src', loadingImg);
   imgLoading.setAttribute('alt', 'reload list');
+  imgLoading.addEventListener('click', () => {
+    window.location.reload();
+  });
   article.appendChild(imgLoading);
   // inputRow
   const div = document.getElementsByTagName('div')[0];
@@ -105,6 +108,9 @@ window.addEventListener('load', () => {
         } else {
           inputEdit.classList.remove('strike');
         }
+        if (inputEdit.value !== '') {
+          taskStore.update(inputCheckbox.id, inputEdit.value, inputCheckbox.checked);
+        }
       });
       const inputEdit = document.createElement('input');
       inputEdit.setAttribute('type', 'text');
@@ -115,7 +121,7 @@ window.addEventListener('load', () => {
       inputEdit.classList.add('inputFocus');
       inputEdit.value = `${tasksArray[i].description}`;
       inputEdit.addEventListener('click', editionMode);
-      inputEdit.addEventListener('focusout', updateDescription);
+      inputEdit.addEventListener('change', updateDescription);
       const li = document.createElement('li');
       li.classList.add('tasks');
       const divContainer = document.createElement('div');
