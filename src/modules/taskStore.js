@@ -29,11 +29,23 @@ export default class TaskStore {
         element.index = newId;
         newId += 1;
       });
-      this.taskStorage.removeItemStorage(resultCollection);
+      this.taskStorage.updateItemStorage(resultCollection);
     }
   }
 
-  update=(id, description, completed) => {
+  clearCompleted=() => {
+    this.tasksCollection = this.taskStorage.getItemStorage();
+    const resultCollection = this.tasksCollection.filter((t) => t.completed === false);
+    let newId = 1;
+    // reindexation
+    resultCollection.forEach((element) => {
+      element.index = newId;
+      newId += 1;
+    });
+    this.taskStorage.updateItemStorage(resultCollection);
+  }
+
+  updateDescription=(id, description) => {
     if (id > 0) {
       this.tasksCollection = this.taskStorage.getItemStorage();
       const indexArray = this.tasksCollection.findIndex((t) => t.index === parseInt(id, 10));
@@ -41,6 +53,16 @@ export default class TaskStore {
         if (description !== '') {
           this.tasksCollection[indexArray].description = description;
         }
+      }
+      this.taskStorage.setCollectionStorage(this.tasksCollection);
+    }
+  }
+
+  updateStatus=(id, completed) => {
+    if (id > 0) {
+      this.tasksCollection = this.taskStorage.getItemStorage();
+      const indexArray = this.tasksCollection.findIndex((t) => t.index === parseInt(id, 10));
+      if (indexArray !== null) {
         this.tasksCollection[indexArray].completed = completed;
       }
       this.taskStorage.setCollectionStorage(this.tasksCollection);

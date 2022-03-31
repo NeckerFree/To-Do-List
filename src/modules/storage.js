@@ -33,7 +33,7 @@ export default class Storage {
       localStorage.setItem(this.#itemName, this.#jsonItems);
     }
 
-    removeItemStorage=(jsonItemsResult) => {
+    updateItemStorage=(jsonItemsResult) => {
       if (jsonItemsResult.length === 0) {
         localStorage.removeItem(this.#itemName);
       } else {
