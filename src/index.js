@@ -9,13 +9,6 @@ import trashImg from './icons/trash.png';
 
 const taskStore = new TaskStore();
 
-// let deleteTask=(event)=>{
-//   let rowTask=event.target.parentElement;
-//   let divRow=rowTask.childNodes[0];
-//   let check=divRow.childNodes[0];
-//   taskStore.remove(check.id);
-//   window.location.reload();
-// }
 const deleteSelectedTasks = () => {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
   [].forEach.call(checkboxes, (checkbox) => {
@@ -120,9 +113,7 @@ window.addEventListener('load', () => {
         inputCheckbox.setAttribute('checked', true);
       }
       inputEdit.classList.add('inputFocus');
-      // const textNode = document.createTextNode(`${tasksArray[i].description}`);
       inputEdit.value = `${tasksArray[i].description}`;
-      // label.setAttribute('for', 'completed');
       inputEdit.addEventListener('click', editionMode);
       inputEdit.addEventListener('focusout', updateDescription);
       const li = document.createElement('li');
