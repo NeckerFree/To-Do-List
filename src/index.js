@@ -4,7 +4,6 @@ import taskStore from './modules/taskStore.js';
 import enterImg from './icons/enter.png';
 import loadingImg from './icons/loading.png';
 import menuImg from './icons/menuVertical.png';
-// import moveImg from './icons/move.png';
 import trashImg from './icons/trash.png';
 
 const clearCompletedTasks = () => {
@@ -55,7 +54,16 @@ const leaveEditionMode = (event) => {
     const img = rowTask.childNodes[1];
     img.src = menuImg;
     img.alt = 'menu vertical';
-    // window.location.reload();
+  }
+};
+
+const addItem = (enter) => {
+  const rowInsert = enter.parentElement;
+  const inputTask = rowInsert.childNodes[0];
+  if (inputTask.value !== '') {
+    taskStore.add(inputTask.value);
+    inputTask.value = '';
+    window.location.reload();
   }
 };
 
@@ -153,15 +161,4 @@ window.addEventListener('load', () => {
   }
 });
 
-addItem= (enter) => {
-  const rowInsert = enter.parentElement;
-  const inputTask = rowInsert.childNodes[0];
-  if (inputTask.value !== '') {
-    taskStore.add(inputTask.value);
-    inputTask.value = '';
-    window.location.reload();
-  }
-}
-
 module.exports = { addItem };
-

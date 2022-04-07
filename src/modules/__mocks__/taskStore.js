@@ -5,8 +5,8 @@ import Task from '../task.js';
  */
 class TaskStore {
     tasksCollection;
-  
-    constructor() { this.tasksCollection = [] }
+
+    constructor() { this.tasksCollection = []; }
 
   add= (description) => {
     const id = (this.tasksCollection !== null) ? this.tasksCollection.length + 1 : 1;
@@ -15,7 +15,7 @@ class TaskStore {
   }
 
   remove = (id) => {
-    var indexArray = this.tasksCollection.findIndex((t) => t.index === parseInt(id, 10));
+    const indexArray = this.tasksCollection.findIndex((t) => t.index === parseInt(id, 10));
     if (indexArray !== -1) {
       this.tasksCollection.splice(indexArray, 1);
       let newId = 1;
@@ -24,10 +24,9 @@ class TaskStore {
         element.index = newId;
         newId += 1;
       });
+      return 'item removed';
     }
-    else {
-      return "item not found";
-    }
+    return 'item not found';
   }
 
   clearCompleted=() => {
@@ -38,29 +37,7 @@ class TaskStore {
       element.index = newId;
       newId += 1;
     });
-    this.tasksCollection=resultCollection;
-  }
-
-  updateDescription=(id, description) => {
-    if (id > 0) {
-      const indexArray = this.tasksCollection.findIndex((t) => t.index === parseInt(id, 10));
-      if (indexArray !== null) {
-        if (description !== '') {
-          this.tasksCollection[indexArray].description = description;
-        }
-      }
-      this.tasksCollection=resultCollection;
-    }
-  }
-
-  updateStatus=(id, completed) => {
-    if (id > 0) {
-      const indexArray = this.tasksCollection.findIndex((t) => t.index === parseInt(id, 10));
-      if (indexArray !== null) {
-        this.tasksCollection[indexArray].completed = completed;
-      }
-      this.tasksCollection=resultCollection;
-    }
+    this.tasksCollection = resultCollection;
   }
 
   gettasks=() => this.tasksCollection;
@@ -69,4 +46,3 @@ class TaskStore {
 }
 const taskStore = new TaskStore();
 module.exports = taskStore;
-
