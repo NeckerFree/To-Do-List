@@ -5,7 +5,7 @@ const ITEM_STORAGE = 'toDoTasks';
 /**
  * Class to Add, Remove and Get tasks from Storage from
  */
-export default class TaskStore {
+class TaskStore {
   tasksCollection = [];
 
   taskStorage;
@@ -73,3 +73,6 @@ export default class TaskStore {
 
   storageAvailable=() => this.taskStorage.storageAvailable();
 }
+
+const taskStore = new TaskStore();
+module.exports = taskStore;
