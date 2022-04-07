@@ -19,8 +19,6 @@ describe('To-Do List', () => {
       const idToRemove = 1;
       expect(taskStore.remove(idToRemove)).toEqual('item removed');
     });
-  });
-  describe('delete task', () => {
     test('delete non-existent task', () => {
       const idToRemove = 8;
       expect(taskStore.remove(idToRemove)).toEqual('item not found');
