@@ -40,6 +40,26 @@ class TaskStore {
     this.tasksCollection = resultCollection;
   }
 
+  updateDescription = (id, description) => {
+    if (id > 0) {
+      const indexArray = this.tasksCollection.findIndex((t) => t.index === parseInt(id, 10));
+      if (indexArray !== null) {
+        if (description !== '') {
+          this.tasksCollection[indexArray].description = description;
+        }
+      }
+    }
+  }
+
+  updateStatus = (id, completed) => {
+    if (id > 0) {
+      const indexArray = this.tasksCollection.findIndex((t) => t.index === parseInt(id, 10));
+      if (indexArray !== null) {
+        this.tasksCollection[indexArray].completed = completed;
+      }
+    }
+  }
+
   gettasks=() => this.tasksCollection;
 
   storageAvailable=() => true;
